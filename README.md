@@ -169,14 +169,14 @@ interface IUser {
 > favorite model
 
 ```ts
-interface IFavorite {
+interface IWishlist {
     id: string;
     userId: string;
     productIds: string[];
 }
 ```
 
-> cart model
+> cart model 1
 
 ```ts
 interface ICart {
@@ -191,21 +191,63 @@ interface ICart {
 }
 ```
 
+> cart model 1
+
+```ts
+interface ICart {
+    id: string;
+    userId: string;
+
+    cartProducts: {
+        title: string; // Название продукта
+        description: string; // Описание продукта
+        tags: string[];
+        images: string[]; // Ссылки на изображения продукта
+        price: number; // Цена продукта
+
+        quantity: number;
+        modificationId: string;
+    }[];
+}
+```
+
 > order model
 
 ```ts
+enum OrderStatus {
+    NEW = 'Новый',
+    PROCESSING = 'В обработке',
+    SHIPPED = 'Отправлено',
+    DELIVERED = 'Доставлено',
+    CANCELLED = 'Отменено',
+}
+
 interface IOrder {
     id: string;
 
-    quantity: number;
-    modificationId: string;
+    userId: string;
+    userContacts: {
+        phone: string;
+        email: string;
+    };
+
+    products: {
+        title: string; // Название продукта
+        description: string; // Описание продукта
+        tags: string[];
+        images: string[]; // Ссылки на изображения продукта
+        price: number; // Цена продукта
+
+        quantity: number;
+        modificationId: string;
+    }[];
     totalPrice: number;
 
     marketingSourceId?: string; // маркетинговая программа ПОКА ЗАБИТЬ
     operatorId?: string; // оператор, который обслужил заказ
 
     // TODO: сделать енумы
-    status: string;
+    status: OrderStatus;
 
     creationDate: string;
 }
