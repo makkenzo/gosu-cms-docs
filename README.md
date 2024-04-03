@@ -166,7 +166,7 @@ interface IUser {
 
 Функции работы с товарами (желаемое, корзина)
 
-> favorite model
+> wishlist model
 
 ```ts
 interface IWishlist {
@@ -191,7 +191,7 @@ interface ICart {
 }
 ```
 
-> cart model 1
+> cart model 2
 
 ```ts
 interface ICart {
@@ -232,15 +232,18 @@ interface IOrder {
     };
 
     products: {
-        title: string; // Название продукта
+        name: string; // Название продукта
+        modificationName: string; // Название модификации
+
         description: string; // Описание продукта
         tags: string[];
         images: string[]; // Ссылки на изображения продукта
         price: number; // Цена продукта
+        discount: number;
 
         quantity: number;
-        modificationId: string;
     }[];
+
     totalPrice: number;
 
     marketingSourceId?: string; // маркетинговая программа ПОКА ЗАБИТЬ
