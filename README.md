@@ -166,8 +166,49 @@ interface IUser {
 
 Функции работы с товарами (желаемое, корзина)
 
+> favorite model
+
 ```ts
-...
+interface IFavorite {
+    id: string;
+    userId: string;
+    productIds: string[];
+}
+```
+
+> cart model
+
+```ts
+interface ICart {
+    id: string;
+    userId: string;
+
+    cartProducts: {
+        id: string;
+        quantity: number;
+        modificationId: string;
+    }[];
+}
+```
+
+> order model
+
+```ts
+interface IOrder {
+    id: string;
+
+    quantity: number;
+    modificationId: string;
+    totalPrice: number;
+
+    marketingSourceId?: string; // маркетинговая программа
+    operatorId?: string; // оператор, который обслужил заказ
+
+    // TODO: сделать енумы
+    status: string;
+
+    creationDate: string;
+}
 ```
 
 ## 2 этап: Админ-панель:
@@ -179,12 +220,6 @@ interface IUser {
 ```
 
 Администрирование заказов
-
-```ts
-...
-```
-
-Интеграция с 1С
 
 ```ts
 ...
