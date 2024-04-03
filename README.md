@@ -201,7 +201,7 @@ interface IOrder {
     modificationId: string;
     totalPrice: number;
 
-    marketingSourceId?: string; // маркетинговая программа
+    marketingSourceId?: string; // маркетинговая программа ПОКА ЗАБИТЬ
     operatorId?: string; // оператор, который обслужил заказ
 
     // TODO: сделать енумы
