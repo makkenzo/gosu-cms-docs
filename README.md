@@ -244,8 +244,6 @@ interface IOrder {
         quantity: number;
     }[];
 
-    totalPrice: number;
-
     marketingSourceId?: string; // маркетинговая программа ПОКА ЗАБИТЬ
     operatorId?: string; // оператор, который обслужил заказ
 
@@ -260,35 +258,7 @@ interface IOrder {
 
 ### Администрирование товаров
 
-Просмотр всех товаров:
-
--   Метод: GET
--   URL: /api/{shopId}/products
-
-Просмотр конкретного товара:
-
--   Метод: GET
--   URL: /api/{shopId}/products/{product_id}
-
-Изменение товара:
-
--   Метод: PUT
--   URL: /api/{shopId}/products/{product_id}
-
-Удаление товара:
-
--   Метод: DELETE
--   URL: /api/{shopId}/products/{product_id}
-
-Создание нового товара:
-
--   Метод: POST
--   URL: /api/{shopId}/products
-
-Обновление всех полей товара:
-
--   Метод: PATCH
--   URL: /api/{shopId}/products/{product_id}/update
+...
 
 ### Администрирование заказов
 
