@@ -260,8 +260,41 @@ interface IOrder {
 
 ...
 
-### Администрирование заказов
+> moderator model
 
 ```ts
-...
+enum Roles {
+    ADMINISTRATOR = 'Администратор',
+    MANAGER = 'Менеджер',
+    EMPLOYEE = 'Сотрудник',
+    GUEST = 'Гость',
+}
+
+interface IModerator {
+    id: string;
+    login: string;
+    name: string;
+    password: string;
+    role: Roles;
+}
+```
+
+> options model
+
+```ts
+interface IOptions {
+    url_1c: string;
+    url_iiko: string;
+    url_moy_sklad: string;
+
+    login_1c: string;
+    password_1c: string;
+
+    iiko_api_key: string;
+
+    moy_sklad_login: string;
+    moy_sklad_password: string;
+
+    // to be continued
+}
 ```
