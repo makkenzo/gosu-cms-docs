@@ -247,10 +247,10 @@ interface IOrder {
     marketingSourceId?: string; // маркетинговая программа ПОКА ЗАБИТЬ
     operatorId?: string; // оператор, который обслужил заказ
 
-    // TODO: сделать енумы
     status: OrderStatus;
 
-    creationDate: string;
+    createdAt: string;
+    updatedAt: string;
 }
 ```
 
